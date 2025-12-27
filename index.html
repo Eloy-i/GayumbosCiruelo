@@ -1,64 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Los mejores calzoncillos para tu ciruelo">
+    <meta name="description" content="Los mejores calzoncillos para tu ciruelo. Hazte millonario con Gallumbos Ciruelo. ">
+    <link rel="shortcut icon" href="./assets/icons/logo_gallumbos.png" type="image/png" />
     <link rel="stylesheet" href="styles.css">
-    <title>Gayumbos Ciruelo</title>
+    <title>Gallumbos Ciruelo</title>
 </head>
 <body>
     <header>
         <section class="titulo">
-            <h1>Gayumbos Ciruelo</h1>
-            <!--Falta colocar imagen, buscare una mascota corporativa con cara de calzoncillo-->
-            <p>Gayumbos con tecnología amppliadora. Confort para tu ciruelo.</p>
-         </section>
-         <section class="menu">
+            <h1>CIRUELO</h1>
+            <p>CONFORT PARA CIRUELOS EXIGENTES</p>
+            <img src="assets/logos/logoCorp2.png" alt="Imágen corporativa de Gallumbos Ciruelo">            
+        </section>
+
+
+        <section class="menu">
             <nav>
                 <ul>
-                    <li>Inicio</li>
-                    <li href>Novedades</li>
-                    <li>Productos
-                    <div class="submenu-productos">
-                            <ul> <!--Buscar su en css se puede meter como un menú oculto con hover-->
-                                <li>Clásicos</li>
-                                <li>Modernos</li>
-                                <li>Especiales</li>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#coleccion">Colección ▼</a>
+                    <div class="submenu-coleccion">
+                            <ul> <!--Buscar en css se puede meter como un menú oculto con hover-->
+                                <li><a href="#clasicos">Clásicos</a></li>
+                                <li><a href="#novedades">Novedades</a></li>
                             </ul>
                     </div>
                     </li>
-                    <li>Contacto</li>
-                    <li>Conócenos</li>
+                    <li><a href="#opiniones">Opiniones</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
-         </section>
+        </section>
     </header>
     <main>
-        <section class="novedades">
-            <h2>Novedades</h2>
+        <section class="inicio" id="inicio">
+            <h2>Hecho para ti</h2>
+            <p>En Gallumbos Ciruelo comprendemos la importandcia de mantener tu ciruelo cómodo y preparado para lo que pueda suceder. Por ello, presentamos nuestos revolucionarios <strong>gallumbos</strong> que se adaptan a todo tipo de necesidades.</p>          
         </section>
-        <section class="Productos">
-            <h2>Productos</h2>
-            <div class="clasicos">
+        <!-- Sección de tienda con uso de section padre para toda la colección y section hijos para los dos bloques. Cada artículo está enmarcado en <article> para señalar que podrían tener su propia página detallada. 
+            
+        DUDA: Estaba dudando si es mejor hacerlo así o usar figure y figurecaption pero semanticamente me parece mejor article.-->
+
+        <section class="coleccion" id="coleccion">
+            <h2>Nuestra Colección</h2>
+            <p>Nuestros gallumbos se hacen únicamente por encargo y son fabricados 100 % con lana de alpaca taiwanesa. Una vez hayas elegido entre los productos de nuestro catálogo, accede a nuestro <a href="#contacto">formulario de contacto</a> para realizar tu pedido. En menos de 24h nos pondremos en contacto con usted. </p> 
+            
+            <section class="clasicos" id="clasicos">
                 <h3>Clásicos</h3>
-            </div>
-            <div class="modernos">
-                <h3>Modernos</h3>
-            </div>
-            <div class="especiales">
-                <h3>Especiales</h3>
-            </div>
+                <div class="productos">
+                    <article class="producto">
+                        <img src="assets/store/clasico.webp" alt="Gallumbo clásico">
+                        <h4>Clásico</h4>
+                        <p>Nada como el clásico gallumbo que llevaba tu padre. Con apertura central para evitar esfuerzos.</p>
+                        <span class="precio">16 €</span>
+                    </article>
+                    <article class="producto">
+                        <img src="assets/store/largo.webp" alt="Gallumbo largo">
+                        <h4>Largo 50's</h4>
+                        <p>Con este gallumbo no necesitas vestirte para los breves momentos en los que sales de casa.</p>
+                        <span class="precio">21,57 €</span>
+                    </article>
+                    <article class="producto">
+                        <img src="assets/store/boxer.webp" alt="Gallumbo Bóxer">
+                        <h4>Bóxer</h4>
+                        <p>El ya clásico bóxer, ideal para el día a día. Alimentar cada 8 horas.</p>
+                        <span class="precio">3,86 €</span>
+                    </article>
+                    <article class="producto">
+                        <img src="assets/store/small.webp" alt="Gallumbo de la Honestidad">
+                        <h4>Honestidad</h4>
+                        <p>Con nuestro modelo Honestidad, no tendrás que excusarte ni perdir perdón nunca más.</p>
+                        <span class="precio">!69 €</span>
+                    </article>
+                </div>
+            </section>
+
+            <section class="novedades" id="novedades">
+                <h3>Nueva Colección</h3>
+                <div class="productos">
+                    <article class="producto">
+                        <img src="assets/store/Casto.webp" alt="Gallumbo de Castidad">
+                        <h4>Castidad</h4>
+                        <p>Con este gallumbo podrás salir sin miedo a perder la honra.</p>
+                        <span class="precio">59,99 €</span>
+                    </article>
+                    <article class="producto">
+                        <img src="assets/store/palomino.webp" alt="Gallumbo Palomino">
+                        <h4>Palomino</h4>
+                        <p>¿Harto de pedos traidores? Nadie te volverá a mirar mal gracias a este modelo. Se recomienda no lavar.</p>
+                        <span class="precio">0,25 €</span>
+                    </article>
+                    
+                    <article class="producto">
+                        <img src="assets/store/back.webp" alt="Gallumbo Descapotable">
+                        <h4>Descapotable</h4>
+                        <p>Con el módelo descapotable no volverás a sufrir por apretones explosivos. Siempre preparado para emergencias.</p>
+                        <span class="precio">9,85 €</span>
+                    </article>
+                    <article class="producto">
+                        <img src="assets/store/dodot_yakuza.webp" alt="Gallumbo Dodot">
+                        <h4>Dodot</h4>
+                        <p>Para trinfadores que no pierden el tiempo. No dejes que ninguna distracción física te aparte de tu camino al éxito.</p>
+                        <span class="precio">98 €</span>
+                    </article>
+                </div>
+            </section>
         </section>
-        <!--No me convence aún dejar esto como section pero como quiero maquetarlo lo mismo me viene bien-->
-        <section class="extras">
-            <article class="conocenos">
-                <h2>Quienes somos</h2>
+        
+        <!--Sección para meter promo, cupones temporales o eventos-->
+        <aside class="promo">
+            <h2>Promo especial</h2>
+            <div class="tarjeta-promo">
+            <p><strong>Gallumbos Ciruelo</strong> es la marca oficial que sumunistra calzones de heroe a La Liga de la Justicia. Nuestra tecnologia permite a nuestros heroes luchar contra el crimen y mantener el ciruelo a salvo de cualquier invasión alienigena. Fruto de esta colaboración, <strong>los primeros 100 pedidos con importe superior a 300€</strong> recibirán el exclusivo modelo <strong>Patrullero</strong> usado por Batman</p>
+            <figure>
+                <img src="assets/img/superheroe.png" alt="">
+                <figcaption>Batciruelo</figcaption>
+            </figure>
+            </div>
+        </aside>
+
+        <!--Sección para enmarcar opiniones de clientes. No tengo claro si enmarcar toda la sección en article o meter únicamente en article cada una de las eventuales opiniones. -->
+
+        <section class="opiniones" id="opiniones">
+            <h2>Opiniones de nuestros clientes</h2>
+            <p>Gallumbos Ciruelo es una marca familiar que pone por delante la satisfacción del cliente. La reseñas verificadas de nuestros clientes nos avalan.</p>
+            <article class="opinion1">                
+                <figure>
+                    <img src="assets/img/cliente.webp" alt="foto de perfil de cliente" title="Cliente duerme feliz con Gallumbos Ciruelo">
+                    <figcaption>J.M. Anónimo</figcaption>
+                </figure>
+                <div> 
+                <p class="valoracion">★★★★★</p>
+                <p>"Cómo informático necesitaba unos gallumbos que se adaptaran a mis necesidades. En Gallumbos Ciruelo encontré lo que necesitaba. El gallumbo Dodot me permite trabajar sin preocupaciones fisiológicas para centrarme en <strong>generar enormes ingresos</strong>. Y agradezco profundamente al modelo Castidad que me mantenga firme en el camino de la honra, incluso frente al irresistible sex-appeal que, como informático, desprendo por naturaleza. Una compra imprescindible para quienes, como yo, combinamos productividad y dignidad.”</p>
+                </div>
             </article>
-            <aside class="contacto">
-                meter aquí formulario de contacto o newsletter
-            </aside>
-        </section>       
+        </section> 
+            
+
+        <section class="contacto" id="contacto">
+            <h2>Formulario de Contacto</h2>
+            <form action="#" class="form">
+                <fieldset>
+                    <legend>Datos de contacto</legend>
+                    <label for="nombre">
+                        <span>Nombre:</span>
+                        <input type="text" name="nombre" placeholder="Escriba su nombre" required>
+                    </label>
+                    <label for="email">
+                            <span>Email:</span>
+                            <input type="email" name="email" placeholder="ejemplo@ejemplo.com" required>
+                    </label>
+                    <label for="telefono">
+                            <span>Teléfono:</span>
+                            <input type="tel" name="telefono" id="" required>
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Motivo Consulta</legend>
+                    <label for="motivo"><span>Selecciona una opción</span></label>
+                    <select name="motivo" id="motivo" required>
+                        <option value="">-- Elije una opcción --</option>
+                        <option value="pedido">Realizar un pedido</option>
+                        <option value="consulta">Consulta sobre productos</option>                            <option value="envio">Tiempo de envío</option>                           
+                        <option value="otro">Otros</option>
+                    </select>
+
+                    
+                        
+                    <label>
+                        <span>Orientación del ciruelo:</span>
+                        <input type="radio" name="orientacion" id="" value="izquierda" required> Izquierda
+                    </label>
+                    <label>                                             <input type="radio" name="orientacion" id="" value="centro" required> Centro
+                    </label>
+                    <label>
+                        <input type="radio" name="orientacion" id="" value="izquierda" required> Derecha
+                            </label>
+                        
+                    <textarea id="textarea_form" placeholder="Indica brevemente el motivo de tu consulta. Si vas a realizar un pedido, indica modélo y cantidad."
+                        rows="6" cols="50" maxlength="300" required></textarea>
+                        
+                </fieldset>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+              
 
     </main>
     <footer>

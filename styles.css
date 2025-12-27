@@ -1,8 +1,335 @@
-:root {
+/* Importo de google una fuente básica y su versión negrita para el texto y otra más de "diseño" para la marca*/
 
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+:root {
+    --primary-color: #4b0082;
+    --accent-color: rgba(129, 192, 129, 0.685);
+    --b-color: #e7eff4; 
+    --text-color: #333;
+    --b-radius: 10px;
+    --space-s: 0.5rem;
+    --space-m: 1rem;
+    --space-l: 2rem;
+    --shadow: 0 2px 6px #13002026;
+    --shadow-hover: 0 2px 6px #4b0082;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body{
-    margin: 0;
-    padding: 0;
+    font-family: "Archivo", sans-serif;
+    background-color: var(--b-color);
+    color: var(--text-color);
+    text-align: justify;
+}
+
+ul{
+    list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;  
+}
+
+/* Maquetación de la portada de marca y menú de navegación */
+
+.titulo {
+    background-color: var(--primary-color);
+    color: #e7eff4;
+}
+
+.titulo h1{
+    font-family: "Playfair Display", serif;
+    font-weight: 800;
+    font-size: 4rem;
+    letter-spacing: -5px;
+    text-align: center;
+}
+
+.titulo p {
+    font-family: "Archivo", sans-serif;
+    letter-spacing: 5px;
+    font-size: 0.8rem;
+    margin-top: -10px;
+    text-align: center;
+}
+
+.titulo img {
+    max-width: 100%;
+    height: auto;
+    width: 180px;
+    display: block;
+    margin: 0 auto;
+}
+
+.menu{
+    background-color: var(--accent-color);
+    border-bottom: 2px solid var(--primary-color);
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: var(--space-s);
+}
+
+.menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-l);
+    justify-content: center
+}
+
+.menu ul li{
+    position: relative;
+}
+
+/* Intento de hacer un menú oculto en colección*/
+
+.submenu-coleccion {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: var(--shadow);
+}
+
+.submenu-coleccion li{
+    min-width: 100%;
+}
+
+.submenu-coleccion a {
+    padding: 10px 15px; 
+    display: block;     
+    color: var(--ciruelo);
+    text-decoration: none;
+}
+
+
+
+.menu li:hover .submenu-coleccion {
+  display: block;
+}
+
+
+/* De momento dejamos esto así, repasar luego*/
+
+h2, h3, h4 {
+    font-family: "Archivo Black", sans-serif;
+    color: var(--primary-color);
+}
+
+h2 {
+  padding-bottom: var(--space-s);
+  margin: var(--space-s)   var(--space-m);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+
+header{
+    margin-bottom: var(--space-m);
+}
+
+.inicio {
+    padding: 0 var(--space-s);
+    margin-bottom: var(--space-l);
+}
+
+.coleccion{
+    margin-bottom: var(--space-l);
+}
+
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: var(--space-l);  
+}
+
+.producto{
+    overflow: hidden;
+    gap: var(--space-m);
+    max-width: 200px;
+    text-align: justify;
+    border-radius: var(--b-radius);
+    background-color: white;
+    box-shadow: var(--shadow);
+}
+
+.producto h4 {
+    width: 100%;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: var(--space-s);
+}
+
+.producto img{
+    max-width: 100%;
+}
+
+.precio{
+    width: 100%;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+
+/*Sección de promoción*/
+
+.promo {
+    background-color:#a84feb3c;
+    margin: var(--space-s) var(--space-m);
+    border-left: 5px solid var(--primary-color);
+    border-radius: var(--b-radius);
+    box-shadow: var(--shadow);
+}
+
+.tarjeta-promo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-l);
+}
+
+.promo p{
+    flex: 2;
+    padding-left: var(--space-s);
+}
+
+.promo figure{
+    flex: 1;
+    padding: var(--space-s);
+}
+
+.promo img{
+    width: 100%;
+    height: auto;
+    border-radius: var(--b-radius);
+
+}
+
+/* Maquetación de la caja de opiniones. Objetivo: Foto de perfil arriba a la izquierda. A la derecha texto con top destacad de puntuación*/
+
+.opinion1{
+    background-color: white;
+    border: 1px solid var(--primary-color);
+    box-shadow: var(--shadow);
+    border-radius: var(--b-radius);
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-m);
+    padding: var(--space-s);
+    margin: var(--space-m);
+}
+.opinion1 div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.valoracion{
+    color: gold;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.opinion1 p{
+    flex-direction: column;
+    align-items: center;
+}
+
+.opinion1 img{
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+}
+
+.opinion1 figcaption{
+    font-size: small;
+}
+
+/* Maquetación formulario de contacto... Objetivo: que destaque bastante usando color. 
+
+Iba a maquetar con flex cada bloque pero como ya he hecho cada zona con flex, uso la forma que usamos en el de Megaconstrucciones Mariano.*/
+
+.contacto{
+    background-color: var(--accent-color);
+    padding: 20px var(--space-m);
+}
+
+.contacto h2{
+    text-align: center;
+    font-size: 1.8rem;
+    border-bottom: none;
+    text-shadow: var(--shadow);
+}
+
+.form span{
+    display: inline-block;
+    display: block;
+    margin-top: var(--space-s);
+    font-weight: 600;
+}
+
+.form input, textarea{
+    width: 100%;
+    background-color: var(--b-color);
+    padding: var(--space-s);
+    border-radius: var(--b-radius);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form input[type="radio"] {
+    width: auto; 
+    margin-right: 0;
+    cursor: pointer;
+    margin-right: 5px;
+    vertical-align: middle;
+    position: relative;
+}
+
+.opciones-radio input[type="radio"] {
+    width: auto;           /* Que no herede el 100% que pusimos antes */
+    margin: 0;             /* Quitamos márgenes extra */
+    margin-right: 5px;     /* El espacio exacto que quieres que haya con el texto */
+    vertical-align: middle; /* Alinea el círculo con el centro del texto */
+    position: relative;
+    top: -1px;             /* Ajuste fino manual si ves que el círculo está muy arriba */
+}
+
+.form fieldset{
+    padding: var(--space-s);
+    border-radius: var(--b-radius);
+    border-color: var(--primary-color);
+}
+
+.form button{
+    display: block;
+    background-color: var(--primary-color);
+    color: var(--b-color);
+    font-weight: 600;
+    padding: var(--space-s);
+    margin: var(--space-s) auto 0 auto;
+    border-radius: var(--b-radius);
+    transition: all 3s ease;
+}
+
+.form button:hover{
+    filter: brightness(1.60);
+    transform: scaleX(5);
+    text-transform: uppercase;
+    letter-spacing: -1px;
 }

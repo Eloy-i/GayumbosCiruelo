@@ -6,7 +6,8 @@
 :root {
     --primary-color: #4b0082;
     --accent-color: rgba(129, 192, 129, 0.685);
-    --b-color: #e7eff4; 
+    --b-color: #e7eff4;
+    --background-color: #e5c79042; 
     --text-color: #333;
     --b-radius: 10px;
     --space-s: 0.5rem;
@@ -28,7 +29,7 @@ html{
 
 body{
     font-family: "Archivo", sans-serif;
-    background-color: var(--b-color);
+    background-color: var(--background-color);
     color: var(--text-color);
     text-align: justify;
 }
@@ -134,6 +135,16 @@ h2 {
   border-bottom: 2px solid var(--accent-color);
 }
 
+h3{
+    border-left: 3px solid var(--primary-color);
+    margin: var(--space-m);
+    padding-left: var(--space-s);
+    font-family: "Playfair Display", serif;
+}
+
+h4{
+     font-family: "Playfair Display", serif;
+}
 
 header{
     margin-bottom: var(--space-m);
@@ -163,6 +174,12 @@ header{
     border-radius: var(--b-radius);
     background-color: white;
     box-shadow: var(--shadow);
+    transition: all 0.5s ease;
+}
+
+.producto:hover{
+    box-shadow: var(--shadow-hover);
+     transform: scale(1.05);
 }
 
 .producto h4 {
@@ -216,13 +233,14 @@ header{
 .promo img{
     width: 100%;
     height: auto;
+    max-width: 400px;
     border-radius: var(--b-radius);
 
 }
 
 /* Maquetación de la caja de opiniones. Objetivo: Foto de perfil arriba a la izquierda. A la derecha texto con top destacad de puntuación*/
 
-.opinion1{
+.opinion{
     background-color: white;
     border: 1px solid var(--primary-color);
     box-shadow: var(--shadow);
@@ -233,7 +251,7 @@ header{
     padding: var(--space-s);
     margin: var(--space-m);
 }
-.opinion1 div{
+.opinion div{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -245,19 +263,21 @@ header{
     text-align: center;
 }
 
-.opinion1 p{
+.opinion p{
     flex-direction: column;
     align-items: center;
 }
 
-.opinion1 img{
+.opinion img{
     border-radius: 50%;
     width: 100%;
     height: auto;
 }
 
-.opinion1 figcaption{
+.opinion figcaption{
     font-size: small;
+    font-style: italic;
+    text-align: center;
 }
 
 /* Maquetación formulario de contacto... Objetivo: que destaque bastante usando color. 
@@ -332,4 +352,10 @@ Iba a maquetar con flex cada bloque pero como ya he hecho cada zona con flex, us
     transform: scaleX(5);
     text-transform: uppercase;
     letter-spacing: -1px;
+}
+
+
+footer{
+    border-top: 2px solid var(--primary-color);
+    padding: var(--space-m);
 }

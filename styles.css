@@ -2,20 +2,30 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
+/*Este css lo voy hacer pensando en pantalla de móvil, comprobando resultado en el inspector web con un ancho de 360px*/
 
 :root {
+    /* Colores de marca elegidos por el cliente, yo no tengo nada que ver. Apto para retinas sensibles */
     --primary-color: #4b0082;
     --accent-color: rgba(129, 192, 129, 0.685);
-    --b-color: #e7eff4;
-    --background-color: #e5c79042; 
+    --b-color: whitesmoke;
+    --background-color: #f8f0e2; 
     --text-color: #333;
-    --b-radius: 10px;
+    /*Fuentes*/
+    --fuente-texto: "Archivo", sans-serif;
+    --fuente-titulo: "Archivo Black", sans-serif;
+    --fuente-marca: "Playfair Display", serif;
+    /* Espacios */
     --space-s: 0.5rem;
     --space-m: 1rem;
     --space-l: 2rem;
+    /* Estética de sombras y bordes */
+    --b-radius: 10px;
     --shadow: 0 2px 6px #13002026;
     --shadow-hover: 0 2px 6px #4b0082;
 }
+
+/* Zona para estilos generales antes de pasar a zonas concretas*/
 
 *{
     margin: 0px;
@@ -23,17 +33,18 @@
     box-sizing: border-box;
 }
 
+
 html{
     scroll-behavior: smooth;
 }
 
 body{
-    font-family: "Archivo", sans-serif;
+    font-family: var(--fuente-texto);
     background-color: var(--background-color);
     color: var(--text-color);
-    text-align: justify;
 }
 
+/* Maqutación general de textos, enlaces y títulos*/
 ul{
     list-style: none;
 }
@@ -43,25 +54,47 @@ a {
   color: inherit;  
 }
 
-/* Maquetación de la portada de marca y menú de navegación */
+h2, h3, h4 {
+    color: var(--primary-color);
+}
+
+h2 {
+    font-family: var(--fuente-titulo);
+    padding-bottom: var(--space-s);
+    margin: var(--space-s)   var(--space-m);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+h3{
+    font-family: var(--fuente-titulo);
+    border-left: 3px solid var(--primary-color);
+    margin: var(--space-m) var(--space-l);
+    padding-left: var(--space-s);
+    
+}
+
+h4{
+     font-family: var(--fuente-marca);
+}
+
+/* Maquetación de elementos del header, la portada de marca y menú de navegación */
 
 .titulo {
     background-color: var(--primary-color);
-    color: #e7eff4;
+    color: var(--b-color);
 }
 
 .titulo h1{
-    font-family: "Playfair Display", serif;
-    font-weight: 800;
+    font-family: var(--fuente-marca);
+    font-weight: 600;
     font-size: 4rem;
     letter-spacing: -5px;
     text-align: center;
 }
 
 .titulo p {
-    font-family: "Archivo", sans-serif;
     letter-spacing: 5px;
-    font-size: 0.8rem;
+    font-size: 0.8em;
     margin-top: -10px;
     text-align: center;
 }
@@ -69,7 +102,7 @@ a {
 .titulo img {
     max-width: 100%;
     height: auto;
-    width: 180px;
+    width: 220px;
     display: block;
     margin: 0 auto;
 }
@@ -82,16 +115,27 @@ a {
     padding: var(--space-s);
 }
 
+.menu a{
+    display: block;
+    padding: var(--space-s) 0;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover{
+    color: var(--b-color);
+}
+
 .menu ul {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-l);
-    justify-content: center
+    gap: var(--space-m);
+    justify-content: center;
 }
 
 .menu ul li{
-    position: relative;
+    position: relative; /*He necesitado esto porqué el submenú se me iba al carajo y de paso aprovecho para cumplir los requisitos de position*/
 }
+
 
 /* Intento de hacer un menú oculto en colección*/
 
@@ -99,9 +143,12 @@ a {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
-    background-color: white;
+    left: 10%;
+    background-color: var(--primary-color);
+    color: var(--b-color);
     box-shadow: var(--shadow);
+    min-width: 110px;
+    z-index: 100; /* Esto lo tuve que buscar porque si la pantalla estaba muy estrecha, contacto tapaba el desplegable*/
 }
 
 .submenu-coleccion li{
@@ -109,54 +156,47 @@ a {
 }
 
 .submenu-coleccion a {
-    padding: 10px 15px; 
-    display: block;     
-    color: var(--ciruelo);
-    text-decoration: none;
+    padding: 15px 8px; 
+    display: block; 
+    transition: all 0.6s ease;    
 }
 
-
-
-.menu li:hover .submenu-coleccion {
-  display: block;
-}
-
-
-/* De momento dejamos esto así, repasar luego*/
-
-h2, h3, h4 {
-    font-family: "Archivo Black", sans-serif;
+.submenu-coleccion a:hover{
+    background-color: var(--accent-color);
     color: var(--primary-color);
 }
 
-h2 {
-  padding-bottom: var(--space-s);
-  margin: var(--space-s)   var(--space-m);
-  border-bottom: 2px solid var(--accent-color);
-}
-
-h3{
-    border-left: 3px solid var(--primary-color);
-    margin: var(--space-m);
-    padding-left: var(--space-s);
-    font-family: "Playfair Display", serif;
-}
-
-h4{
-     font-family: "Playfair Display", serif;
+.menu li:hover .submenu-coleccion {
+  display: block;
 }
 
 header{
     margin-bottom: var(--space-m);
 }
 
+
+/* Maquetación de primera caja, como es una presentación no sólo voy a tocar margin y padding */
+
 .inicio {
-    padding: 0 var(--space-s);
+    padding: 0 var(--space-m);
     margin-bottom: var(--space-l);
 }
 
+/* Segunda caja para la colección de productos de la tienda. Aclaro que no uso flex column de forma consciente. He decidido usar flex por defecto con wrap, luego forzaré el tamaño de cada tarjeta al 75% para que se ordenen como una columna. Así me parece más cómodo maquetar los @media de la versión pc y tablet ya que puedo ahorrarme cambiar el flex-direction en cada una*/
+
 .coleccion{
     margin-bottom: var(--space-l);
+    padding: var(--space-m);
+}
+
+.coleccion p a{
+    font-style: italic;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.coleccion p a:hover{
+    color: var(--primary-color);
 }
 
 .productos {
@@ -166,20 +206,22 @@ header{
     gap: var(--space-l);  
 }
 
+/* Activo de nuevo flex para alinear bien los elementos internos de las tarjetas. En este caso con column*/
 .producto{
-    overflow: hidden;
-    gap: var(--space-m);
-    max-width: 200px;
-    text-align: justify;
+    background-color: var(--b-color);
     border-radius: var(--b-radius);
-    background-color: white;
     box-shadow: var(--shadow);
-    transition: all 0.5s ease;
+    max-width: 75%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
 }
 
 .producto:hover{
     box-shadow: var(--shadow-hover);
-     transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .producto h4 {
@@ -187,29 +229,36 @@ header{
     font-weight: 600;
     text-align: center;
     font-size: 1.2rem;
-    margin-bottom: var(--space-s);
+    margin: var(--space-s) 0;
 }
 
 .producto img{
-    max-width: 100%;
+    max-width: 100%; 
+}
+
+.producto p{
+    padding: 0 var(--space-s);
+    margin-bottom: var(--space-s);
+    text-align: left;
 }
 
 .precio{
-    width: 100%;
     font-weight: 600;
     text-align: center;
     font-size: 1.2rem;
+    padding: var(--space-s);
 }
 
 
-/*Sección de promoción*/
+/*Sección de promoción, aprovecho este aside para que la caja al completo se vea destacada del resto del contenido, que creo que era uno de los requisitos.*/
 
 .promo {
-    background-color:#a84feb3c;
-    margin: var(--space-s) var(--space-m);
+    background-color: rgba(167, 79, 235, 0.137);
+    margin: var(--space-l) var(--space-m);
     border-left: 5px solid var(--primary-color);
     border-radius: var(--b-radius);
     box-shadow: var(--shadow);
+    overflow: hidden;
 }
 
 .tarjeta-promo{
@@ -217,12 +266,14 @@ header{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-l);
+    gap: var(--space-s);
+    padding: var(--space-s);
 }
 
 .promo p{
     flex: 2;
     padding-left: var(--space-s);
+    font-size: 0.9;
 }
 
 .promo figure{
@@ -233,13 +284,21 @@ header{
 .promo img{
     width: 100%;
     height: auto;
-    max-width: 400px;
+    max-width: 150px;
     border-radius: var(--b-radius);
-
 }
 
-/* Maquetación de la caja de opiniones. Objetivo: Foto de perfil arriba a la izquierda. A la derecha texto con top destacad de puntuación*/
+.promo figcaption{
+    font-style: italic;
+    font-size: 0.8rem;
+}
 
+/* Maquetación de la caja de opiniones. Objetivo: Foto de perfil arriba a la izquierda. A la derecha texto destacando la "puntuación" de nuestro cliente autentico y certificado.*/
+
+.opiniones{
+    margin-bottom: var(--space-l);
+    padding: var(--space-m);
+}
 .opinion{
     background-color: white;
     border: 1px solid var(--primary-color);
@@ -247,25 +306,15 @@ header{
     border-radius: var(--b-radius);
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     gap: var(--space-m);
-    padding: var(--space-s);
+    padding: var(--space-m);
     margin: var(--space-m);
 }
-.opinion div{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
 
-.valoracion{
-    color: gold;
-    font-size: 1.5rem;
+.opinion figure{
+    flex: 0 0 80px;
     text-align: center;
-}
-
-.opinion p{
-    flex-direction: column;
-    align-items: center;
 }
 
 .opinion img{
@@ -273,20 +322,40 @@ header{
     width: 100%;
     height: auto;
 }
-
 .opinion figcaption{
-    font-size: small;
+    font-size: 0.8rem;
     font-style: italic;
     text-align: center;
 }
 
+.opinion div{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    height: auto;
+}
+
+.valoracion{
+    color: gold;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.opinion blockquote{
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+
+
 /* Maquetación formulario de contacto... Objetivo: que destaque bastante usando color. 
 
-Iba a maquetar con flex cada bloque pero como ya he hecho cada zona con flex, uso la forma que usamos en el de Megaconstrucciones Mariano.*/
+Iba a maquetar con flex cada bloque pero como ya he usado bastante flex, lo hago como en clase en el formulario de Megamarinos.*/
 
 .contacto{
     background-color: var(--accent-color);
-    padding: 20px var(--space-m);
+    padding: 20px var(--space-l);
+    box-shadow: var(--shadow);
 }
 
 .contacto h2{
@@ -296,14 +365,27 @@ Iba a maquetar con flex cada bloque pero como ya he hecho cada zona con flex, us
     text-shadow: var(--shadow);
 }
 
+.form fieldset{
+    padding: var(--space-s);
+    border-radius: var(--b-radius);
+    border-color: var(--primary-color);
+}
+
+.form legend{
+    background-color: var(--primary-color);
+    color: var(--b-color);
+    padding: 2px 3px;
+    border-radius: var(--b-radius);
+}
+
 .form span{
-    display: inline-block;
     display: block;
-    margin-top: var(--space-s);
+    margin-top: var(--space-m);
+    margin-bottom: 4px;
     font-weight: 600;
 }
 
-.form input, textarea{
+.form input, .form textarea{
     width: 100%;
     background-color: var(--b-color);
     padding: var(--space-s);
@@ -312,50 +394,106 @@ Iba a maquetar con flex cada bloque pero como ya he hecho cada zona con flex, us
     box-sizing: border-box;
 }
 
-.form input[type="radio"] {
-    width: auto; 
-    margin-right: 0;
-    cursor: pointer;
-    margin-right: 5px;
-    vertical-align: middle;
-    position: relative;
-}
 
-.opciones-radio input[type="radio"] {
-    width: auto;           /* Que no herede el 100% que pusimos antes */
-    margin: 0;             /* Quitamos márgenes extra */
-    margin-right: 5px;     /* El espacio exacto que quieres que haya con el texto */
-    vertical-align: middle; /* Alinea el círculo con el centro del texto */
-    position: relative;
-    top: -1px;             /* Ajuste fino manual si ves que el círculo está muy arriba */
-}
-
-.form fieldset{
-    padding: var(--space-s);
-    border-radius: var(--b-radius);
-    border-color: var(--primary-color);
-}
 
 .form button{
     display: block;
     background-color: var(--primary-color);
     color: var(--b-color);
     font-weight: 600;
-    padding: var(--space-s);
-    margin: var(--space-s) auto 0 auto;
+    font-size: 1.1rem;
+    padding: var(--space-m);
+    margin: var(--space-s) auto 0;
     border-radius: var(--b-radius);
-    transition: all 3s ease;
+    transition: all 5s ease;
+    cursor: pointer;
 }
-
+/* Si lo tocas... Crece*/
 .form button:hover{
-    filter: brightness(1.60);
-    transform: scaleX(5);
-    text-transform: uppercase;
-    letter-spacing: -1px;
+    filter: brightness(1.40);
+    transform: scaleX(2);
 }
 
 
 footer{
+    margin-top: var(--space-l);
+    background-color: var(--b-color);
     border-top: 2px solid var(--primary-color);
     padding: var(--space-m);
+    font-size: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-m);
 }
+
+footer img{
+    width: 80px;
+    max-width: 100%;
+}
+
+
+/* MEDIAQUERYS
+El código anterior lo he ido probando pensando en movil. Uso los @media para maquetar a partir del tamaño tablet y luego monitor... Objetivo principal es que las tarjetas se adapten a mi gusto y evitar que el wrap me ponga 3 arriba y 1 abajo.*/
+
+@media (min-width: 600px){
+    /* Ahora que hay estacio, amplio el menú*/
+    .menu ul{
+        justify-content: space-evenly;
+    }
+
+    .producto{
+        width: calc(50% - var(--space-l));
+        max-width: 300px; /*Uso px en vez de % se hacían enormes*/
+    }
+}
+
+/* Para PC voy a probar a poner en el mismo bloque las cajas de promo y opiniones, ya que me parecen cosas accesorias que quedan muy estiradas y pueden quedar bien así.*/
+
+@media (min-width: 900px){
+    .titulo h1{
+        font-size: 5rem;
+    }
+
+    .menu ul{
+        justify-content: space-evenly;
+    }
+    .producto{
+        width: calc(25% - var(--space-l));
+    }
+
+    .bloque-bajo{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: var(--space-l);
+    }
+
+    .opiniones{
+    flex: 2;
+    /*He copiado exactamente los mismo parametros que en .promo (con otro color), para que queden perfectamente alineados*/
+    background-color: var(--b-color);
+    margin: var(--space-l) var(--space-m);
+    border-left: 5px solid var(--primary-color);
+    border-radius: var(--b-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    }
+
+    .promo{
+        flex: 1;
+    }
+
+    .form{
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+    
